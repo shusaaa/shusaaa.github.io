@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vue router 传参的几种方式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.使用冒号传参1234567# router.js 中	&amp;#123;      path:&amp;apos;&#x2F;tmp3&#x2F;:id&#x2F;:uname&amp;apos;,  # 通过冒号 进行传参      name:&amp;apos;tmp3&amp;apos;,      component: tmp3    &amp;#125;,  12345# Tmp3.vue 组件中&amp;lt;div&amp;gt;	&amp;lt;!--可拿到地址栏传递的参数 在页面渲染--&amp;gt;	&amp;lt;h4&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue router 传参的几种方式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;hello-world&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.使用冒号传参1234567# router.js 中	&amp;#123;      path:&amp;apos;&#x2F;tmp3&#x2F;:id&#x2F;:uname&amp;apos;,  # 通过冒号 进行传参      name:&amp;apos;tmp3&amp;apos;,      component: tmp3    &amp;#125;,  12345# Tmp3.vue 组件中&amp;lt;div&amp;gt;	&amp;lt;!--可拿到地址栏传递的参数 在页面渲染--&amp;gt;	&amp;lt;h4&amp;g">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-26T03:28:51.845Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/26/hello-world/" class="article-date">
+  <time datetime="2019-10-26T02:48:18.290Z" itemprop="datePublished">2019-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue router 传参的几种方式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-使用冒号传参"><a href="#1-使用冒号传参" class="headerlink" title="1.使用冒号传参"></a>1.使用冒号传参</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># router.js 中</span></span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">      path:<span class="string">'/tmp3/:id/:uname'</span>,  <span class="comment"># 通过冒号 进行传参</span></span><br><span class="line">      name:<span class="string">'tmp3'</span>,</span><br><span class="line">      component: tmp3</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tmp3.vue 组件中</span></span><br><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;!--可拿到地址栏传递的参数 在页面渲染--&gt;</span><br><span class="line">	&lt;h4&gt; &#123;&#123; <span class="variable">$route</span>.params.id&#125;&#125; ---- &#123;&#123;<span class="variable">$route</span>.params.uname&#125;&#125;&lt;/h4&gt;  </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-router-link带参跳转"><a href="#2-router-link带参跳转" class="headerlink" title="2.router-link带参跳转"></a>2.router-link带参跳转</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 其他组件</span></span><br><span class="line">&lt;router-link to=<span class="string">"/tmp3/12/hammer"</span>&gt;跳转到 tmp3&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="1-amp-amp-2-对应的js参数获取"><a href="#1-amp-amp-2-对应的js参数获取" class="headerlink" title="1.&amp;&amp;2.对应的js参数获取"></a>1.&amp;&amp;2.对应的js参数获取</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># js 参数获取</span></span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="function"><span class="title">getParams</span></span>()&#123;</span><br><span class="line">         console.log(this.<span class="variable">$route</span>.params.id,this.<span class="variable">$route</span>.params.uname)</span><br><span class="line">     &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-命名路由-传参"><a href="#3-命名路由-传参" class="headerlink" title="3.命名路由 传参"></a>3.命名路由 传参</h3><p>在 Vue 实例内部，你可以通过 $router 访问路由实例。因此可以调用 this.$router.push<br>router.push 会向history 栈添加一个一个新记录<br>所以 router-link to 等同于 router.push</p>
+<h4 id="3-1声明式"><a href="#3-1声明式" class="headerlink" title="3.1声明式"></a>3.1声明式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 声明式路由传参</span></span><br><span class="line">&lt;router-link :to=<span class="string">"&#123;path:'/tmp3',query:&#123;id:5,uname:'josh'&#125;&#125;"</span>&gt;声明式传参&lt;/router-link&gt;&lt;router-link :to=<span class="string">""</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2编程式"><a href="#3-2编程式" class="headerlink" title="3.2编程式"></a>3.2编程式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编程式路由传参</span></span><br><span class="line"><span class="comment"># 其他组件</span></span><br><span class="line"></span><br><span class="line">&lt;button @click=<span class="string">"toTmp3"</span>&gt;编程式&lt;/button&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	methods:&#123;</span><br><span class="line">		<span class="function"><span class="title">toTmp3</span></span>()&#123;</span><br><span class="line">	        this.<span class="variable">$router</span>.push(&#123;name:<span class="string">'tmp3'</span>,path:<span class="string">'/mp3'</span>,params:&#123;id:7,uname:<span class="string">'jessic'</span>&#125;&#125;)  </span><br><span class="line">	        <span class="comment"># 向 history 栈添加一个记录 通过 params 进行传值</span></span><br><span class="line">     	&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tmp3.vue</span></span><br><span class="line"><span class="function"><span class="title">getParams</span></span>()&#123;</span><br><span class="line">    console.log(this.<span class="variable">$route</span>.params.id,this.<span class="variable">$route</span>.params.uname) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/26/hello-world/" data-id="ck26z9bfe00009wvm0zd1elh2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/26/hello-world/">vue router 传参的几种方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
